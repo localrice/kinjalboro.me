@@ -1,5 +1,125 @@
-<html>
-  <h1>
-    {{ .title }}
-  </h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>~/kinjal</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css/dejavu-sans-mono"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <!-- <a href="" class="logo">~/kinjal</a> -->
+      <a href="./" class="tlink">
+        <span class="bracket">[</span>~/kinjal<span class="bracket">]</span>
+      </a>
+      <nav class="navbar">
+        <a href="./posts" class="tlink">
+          <span class="bracket">[</span>./posts<span class="bracket">]</span>
+        </a>
+        <a href="./projects" class="tlink">
+          <span class="bracket">[</span>./projects<span class="bracket">]</span>
+        </a>
+        <a href="./resume" class="tlink">
+          <span class="bracket">[</span>./resume<span class="bracket">]</span>
+        </a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <section class="terminal">
+        <div class="terminal-header">
+          kinjal<span class="sep">@</span>ricefield ~
+          <span class="label">$</span> mefetch
+        </div>
+
+        <div class="terminal-body">
+          <div class="neofetch">
+            <pre class="neofetch-art">
+
+                   ░
+               ░  ░
+              ░  ░
+             ░    ░     ▄▀ ▄▀
+              ░       ▄▀ ▄▀
+              ▄▄█\█▄▄▀ ▄▀
+         __▄`/█/`██`█▄▀__
+       ▄▀·`.,█.██\-██/█`·▀▄
+      ▐█▄██████,,████ .,▄▄█▌
+      ▐▓▓▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▒▒░▌
+      ▐▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒░░▌
+       █▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒░░█
+       ▐▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒░░░▌
+        ▀█▓▓▓▓▓▒▒▒▒▒▒▒░░█▀
+          ▀██▓▓▒▒▒▒▒▒██▀
+             ▀▀▀▀▀▀▀▀
+
+      </pre
+            >
+
+            <div class="neofetch-info">
+              <div class="row">
+                <span class="label">name</span><span class="sep">&gt;</span>
+                <span class="value">Kinjal Kavish Boro</span>
+              </div>
+              <div class="row">
+                <span class="label">location</span><span class="sep">&gt;</span>
+                <span class="value">Assam, India</span>
+              </div>
+              <div class="row">
+                <span class="label">education</span
+                ><span class="sep">&gt;</span>
+                <span class="value">B.Tech Computer Science</span>
+              </div>
+              <div class="row">
+                <span class="label">interests</span
+                ><span class="sep">&gt;</span>
+                <span class="value">Embedded systems, DevOps, Networking</span>
+              </div>
+              <div class="row">
+                <span class="label">email</span><span class="sep">&gt;</span>
+                <span class="value">borokinjalkavish@gmail.com</span>
+              </div>
+              <div class="row">
+                <span class="label">status</span><span class="sep">&gt;</span>
+                {{ if eq .onlineStatus "online" }}
+                  <span class="green-accent">online</span>
+                {{ else }}
+                  <span class="dim">offline</span>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="information">
+        <h1>
+          Hello, I am
+          <span class="green-accent no-wrap">Kinjal Kavish Boro</span>
+        </h1>
+        <p>
+          I am an undergraduate interested in building and experimenting with
+          embedded systems, network architecture and backend development.
+        </p>
+        <p>
+          I also love the ESP family of MCUs, Linux ricing and cooking food.
+        </p>
+      </div>
+    </div>
+  </body>
 </html>
