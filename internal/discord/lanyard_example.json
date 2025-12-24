@@ -1,0 +1,32 @@
+{
+  "data": {
+    "kv": {},
+    "discord_user": {
+      "avatar": "99c6087e3c9275d091ff09f60f9f687a",
+      "avatar_decoration_data": {
+        "asset": "a_f507d774257b88d47b3531e8afa46259",
+        "expires_at": 1768507200,
+        "sku_id": "1440174638930853953"
+      },
+      "bot": false,
+      "collectibles": null,
+      "discriminator": "0",
+      "display_name": "localrice",
+      "display_name_styles": null,
+      "global_name": "localrice",
+      "id": "749570497242595410",
+      "primary_guild": null,
+      "public_flags": 128,
+      "username": "kevitheduck"
+    },
+    "activities": [],
+    "discord_status": "online",
+    "active_on_discord_web": false,
+    "active_on_discord_desktop": true,
+    "active_on_discord_mobile": false,
+    "active_on_discord_embedded": false,
+    "listening_to_spotify": false,
+    "spotify": null
+  },
+  "success": true
+}
