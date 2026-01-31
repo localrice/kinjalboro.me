@@ -2,18 +2,49 @@ package main
 
 import (
 	"net/http"
+	"sync"
+	"time"
 
 	"github.com/gin-gonic/gin"
+	"kinjalboro.me/internal/discord"
+)
+
+var (
+	discordStatus string
+	statusMu      sync.RWMutex
 )
 
 func main() {
+	// initial fetch (runs once at startup)
+	discordStatus = discord.GetOnlineStatus()
+
+	// background updater
+	go func() {
+		ticker := time.NewTicker(1 * time.Minute)
+		defer ticker.Stop()
+
+		for {
+			<-ticker.C
+
+			newStatus := discord.GetOnlineStatus()
+
+			statusMu.Lock()
+			discordStatus = newStatus
+			statusMu.Unlock()
+		}
+	}()
+
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*")
 
 	// home page
 	router.GET("/", func(ctx *gin.Context) {
+		statusMu.RLock()
+		status := discordStatus
+		statusMu.RUnlock()
+
 		ctx.HTML(http.StatusOK, "index.tmpl", gin.H{
-			"title": "rice field",
+			"onlineStatus": status,
 		})
 	})
 
@@ -24,5 +55,6 @@ func main() {
 		})
 	})
 
+	router.Static("/static", "./static")
 	router.Run()
 }
