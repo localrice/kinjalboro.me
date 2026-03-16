@@ -15,7 +15,7 @@ var (
 )
 
 func main() {
-	// initial fetch (runs once at startup)
+	// initial fetch
 	discordStatus = discord.GetOnlineStatus()
 
 	// background updater
