@@ -1,5 +1,5 @@
 <h1>{{ .post.Title }}</h1>
-<h3> {{.post.Date }} </h3>
+<h3> {{.post.Date.Format "02 Jan 2006" }} </h3>
 <div>
   {{ .post.Content }}
 </div>
