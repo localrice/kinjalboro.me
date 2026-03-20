@@ -53,6 +53,12 @@ func main() {
 		})
 	})
 
+	router.GET("/posts", func(ctx *gin.Context) {
+		ctx.HTML(http.StatusOK, "posts.tmpl", gin.H{
+			"posts": posts,
+		})
+	})
+
 	// test
 	router.GET("/ping", func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{
