@@ -273,3 +273,29 @@ a {
 .information {
   margin-top: 2rem;
 }
+
+/* posts page*/
+.posts-page .post-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.posts-page .post-date {
+  min-width: 9ch;
+}
+
+.posts-page .post-title {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--fg);
+  text-decoration: none;
+  display: inline;
+  transition: color 0.15s ease;
+}
+
+.posts-page .post-title:hover {
+  color: var(--accent-soft);
+}

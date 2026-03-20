@@ -1,7 +1,63 @@
-<h1>Posts</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>~/posts</title>
 
-{{ range .posts }}
-  <div>
-    <a href="/posts/{{ .Slug }}">{{ .Title }}</a>
-  </div>
-{{ end }}
+    <link rel="stylesheet" href="/static/css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css/dejavu-sans-mono"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="/" class="tlink">
+        <span class="bracket">[</span>~/kinjal<span class="bracket">]</span>
+      </a>
+
+      <nav class="navbar">
+        <a href="/posts" class="tlink">
+          <span class="bracket">[</span>./posts<span class="bracket">]</span>
+        </a>
+        <a href="/projects" class="tlink">
+          <span class="bracket">[</span>./projects<span class="bracket">]</span>
+        </a>
+        <a href="/resume" class="tlink">
+          <span class="bracket">[</span>./resume<span class="bracket">]</span>
+        </a>
+      </nav>
+    </header>
+
+    <div class="container posts-page">
+      <div class="information">
+        <h1>~/posts</h1>
+
+        {{ range .posts }}
+          <div class="post-line">
+            <span class="post-date dim no-wrap">
+              {{ .Date.Format "02 Jan 2006" }}
+            </span>
+
+            <span class="post-hash accent">#</span>
+
+            <a class="post-title" href="/posts/{{ .Slug }}">
+              {{ .Title }}
+            </a>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </body>
+</html>
