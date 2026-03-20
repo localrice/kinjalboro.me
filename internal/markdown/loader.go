@@ -34,6 +34,7 @@ func LoadPosts() ([]Post, error) {
 		var meta frontmatterData
 		body, err := frontmatter.Parse(bytes.NewReader(data), &meta)
 		if err != nil {
+			println("failed to parse:", file)
 			continue
 		}
 
