@@ -1,0 +1,7 @@
+<h1>Posts</h1>
+
+{{ range .posts }}
+  <div>
+    <a href="/posts/{{ .Slug }}">{{ .Title }}</a>
+  </div>
+{{ end }}
