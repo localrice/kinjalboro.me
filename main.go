@@ -7,6 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"kinjalboro.me/internal/discord"
+	"kinjalboro.me/internal/markdown"
 )
 
 var (
@@ -14,9 +15,13 @@ var (
 	statusMu      sync.RWMutex
 )
 
+var posts []markdown.Post
+
 func main() {
 	// initial fetch
 	discordStatus = discord.GetOnlineStatus()
+
+	posts, _ = markdown.LoadPosts()
 
 	// background updater
 	go func() {
