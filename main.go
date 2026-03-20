@@ -59,6 +59,20 @@ func main() {
 		})
 	})
 
+	router.GET("/posts/:slug", func(ctx *gin.Context) {
+		slug := ctx.Param("slug")
+
+		for _, post := range posts {
+			if post.Slug == slug {
+				ctx.HTML(http.StatusOK, "post.tmpl", gin.H{
+					"post": post,
+				})
+				return
+			}
+		}
+		ctx.Status(http.StatusNotFound)
+	})
+
 	// test
 	router.GET("/ping", func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{
