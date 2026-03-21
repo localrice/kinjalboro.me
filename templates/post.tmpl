@@ -1,5 +1,59 @@
-<h1>{{ .post.Title }}</h1>
-<h3> {{.post.Date.Format "02 Jan 2006" }} </h3>
-<div>
-  {{ .post.Content }}
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ .post.Title }}</title>
+
+    <link rel="stylesheet" href="/static/css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css/dejavu-sans-mono"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="/" class="tlink">
+        <span class="bracket">[</span>~/kinjal<span class="bracket">]</span>
+      </a>
+
+      <nav class="navbar">
+        <a href="/posts" class="tlink">
+          <span class="bracket">[</span>./posts<span class="bracket">]</span>
+        </a>
+        <a href="/projects" class="tlink">
+          <span class="bracket">[</span>./projects<span class="bracket">]</span>
+        </a>
+        <a href="/resume" class="tlink">
+          <span class="bracket">[</span>./resume<span class="bracket">]</span>
+        </a>
+      </nav>
+    </header>
+
+    <div class="container post-page">
+      <div class="information">
+        <a href="/posts" class="post-back">← back</a>
+
+        <h1>{{ .post.Title }}</h1>
+
+        <p class="post-date dim">
+          {{ .post.Date.Format "02 Jan 2006" }}
+        </p>
+
+        <div class="post-content">
+          {{ .post.Content }}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
