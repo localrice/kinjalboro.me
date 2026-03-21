@@ -133,6 +133,14 @@ a {
   grid-template-columns: 10ch 2ch auto;
 }
 
+.email {
+  cursor: pointer;
+}
+
+.email:hover {
+  color: var(--accent-soft);
+}
+
 /* colors and accents */
 .accent,
 .label {
