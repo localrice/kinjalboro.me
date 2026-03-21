@@ -9,6 +9,13 @@ import (
 
 	"github.com/adrg/frontmatter"
 	"github.com/yuin/goldmark"
+	"github.com/yuin/goldmark/renderer/html"
+)
+
+var md = goldmark.New(
+	goldmark.WithRendererOptions(
+		html.WithUnsafe(), // THIS enables raw HTML
+	),
 )
 
 type frontmatterData struct {
@@ -39,7 +46,7 @@ func LoadPosts() ([]Post, error) {
 		}
 
 		var buf bytes.Buffer
-		err = goldmark.Convert(body, &buf)
+		err = md.Convert(body, &buf)
 		if err != nil {
 			continue
 		}
