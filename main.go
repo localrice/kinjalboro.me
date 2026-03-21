@@ -73,6 +73,10 @@ func main() {
 		ctx.Status(http.StatusNotFound)
 	})
 
+	router.GET("/projects", func(ctx *gin.Context) {
+		ctx.HTML(http.StatusOK, "projects.tmpl", nil)
+	})
+
 	// test
 	router.GET("/ping", func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{
