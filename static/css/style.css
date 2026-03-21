@@ -360,3 +360,16 @@ a {
 .link-item:hover {
   color: var(--accent-soft);
 }
+
+
+.projects-page {
+  margin-top: 2rem;
+}
+
+.external-link {
+  border-bottom: 1px solid var(--accent-soft);
+}
+
+.external-link:hover {
+  color: var(--accent-soft);
+}
