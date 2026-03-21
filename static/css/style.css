@@ -226,62 +226,6 @@ a {
   }
 }
 
-/* global */
-h1 {
-  font-size: 2rem;
-  font-weight: 500;
-  line-height: 1.85;
-  margin-bottom: 1rem;
-}
-
-h2 {
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-p {
-  font-size: 1rem;
-  line-height: 1.85;
-  margin-bottom: 1rem;
-  opacity: 0.9;
-}
-
-
-a {
-  color: #fff9fb;
-  text-decoration: none;
-  position: relative;
-  display: inline-block;
-}
-
-
-.header {
-  max-width: 50rem;
-  margin: 0 auto;
-  padding: 1.5rem 1rem;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navbar {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.container {
-  max-width: 50rem;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-
-.information {
-  margin-top: 2rem;
-}
-
 /* posts page*/
 .posts-page .post-line {
   display: flex;
@@ -308,7 +252,7 @@ a {
   color: var(--accent-soft);
 }
 
-/* inidividual post page */
+/* individual post page */
 .post-page .post-meta {
   font-size: 0.9rem;
   margin-bottom: 2rem;
@@ -345,4 +289,74 @@ a {
 
 .post-page .post-content li {
   margin-bottom: 0.3rem;
+}
+
+.projects-section {
+  margin-top: 3rem;
+}
+
+
+.project-tree {
+  margin-top: 1.2rem;
+}
+
+.tree-line {
+  display: flex;
+  align-items: baseline;
+  padding: 0.25rem 0;
+}
+
+.tree-prefix {
+  width: 3.5rem;
+  flex-shrink: 0;
+  opacity: var(--dim);
+}
+
+.project-link {
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-soft);
+  transition: color 0.15s ease, border-color 0.15s ease;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.project-link:hover {
+  color: var(--accent-soft);
+}
+
+.project-lang {
+  margin-left: auto;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.tree-desc {
+  margin-left: 3.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+
+.links-section {
+  margin-top: 3rem;
+}
+
+.links-tree {
+  margin-top: 1rem;
+}
+
+.link-item {
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-soft);
+  transition: color 0.15s ease;
+}
+
+.link-item:hover {
+  color: var(--accent-soft);
 }
