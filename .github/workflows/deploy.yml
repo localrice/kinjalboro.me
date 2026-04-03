@@ -6,18 +6,44 @@ on:
       - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy to VPS
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Cache Go modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/go/pkg/mod
+            ~/.cache/go-build
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+
+      - name: Build binary
+        run: |
+          GOOS=linux GOARCH=amd64 go build -o kinjalboro.me
+
+      - name: Copy binary to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_IP }}
+          username: deploy
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: "kinjalboro.me"
+          target: "/home/deploy/kinjalboro.me"
+
+      - name: Restart service
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.VPS_IP }}
           username: deploy
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            cd /home/deploy/kinjalboro.me
-            git pull origin main
-            /usr/bin/go build -o kinjalboro.me
             sudo systemctl restart portfolio
