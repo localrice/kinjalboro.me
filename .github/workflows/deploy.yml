@@ -39,11 +39,21 @@ jobs:
           source: "kinjalboro.me"
           target: "/home/deploy/kinjalboro.me"
 
-      - name: Restart service
+      - name: update repo + restart service
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.VPS_IP }}
           username: deploy
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
+            cd /home/deploy/kinjalboro.me
+
+            # update templates, static, content, etc.
+            git pull origin main
+          
+            # ensure binary is executable (safe guard)
+            chmod +x kinjalboro.me
+          
+            # restart service
             sudo systemctl restart portfolio
+          
